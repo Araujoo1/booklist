@@ -1,0 +1,24 @@
+body {
+  background: linear-gradient(to right, #f8f9fa, #e0e0e0);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.titulo-custom {
+  color: #4a148c;
+  font-size: 3rem;
+}
+
+.botao-meu {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.botao-meu:hover {
+  background-color: #4a148c;
+}
