@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid bg-light min-vh-100 d-flex flex-column justify-content-center align-items-center">
+  <h1 class="display-4 text-primary mb-4">📘 Minha Booklist</h1>
+
+  <div class="d-grid gap-3 col-6 mx-auto">
+    <a href="{% url 'livros' %}" class="btn btn-outline-primary btn-lg">Meus Livros</a>
+    <a href="{% url 'cadastrar_livro' %}" class="btn btn-success btn-lg">Cadastrar Livro</a>
+  </div>
+</div>
+{% endblock %}
