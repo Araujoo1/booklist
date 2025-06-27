@@ -44,7 +44,7 @@ def livros(request):
         ]      
     return render(request, 'livros.html', {'livros': livros})
 
-def editar_livro(request):
+def editar_livro(request, id):
     livro = get_object_or_404(Livro, id=id)
 
     if request.method == 'POST':
@@ -54,3 +54,13 @@ def editar_livro(request):
             return redirect('livros')
     else:
         form=LivroForm(instance=livro)
+
+    return render(request, 'editar_livro.html', {'form': form, 'livro': livro})
+
+def confirmar_exclusao(request, livro_id):
+    livro = get_object_or_404(Livro, id=livro_id)
+    if request.method == 'POST':
+        livro.delete()
+        return redirect('livros')
+
+    
