@@ -4,12 +4,12 @@ body {
 }
 
 .titulo-custom {
-  color: #4a148c;
+  color: #1b0679;
   font-size: 3rem;
 }
 
 .botao-meu {
-  background-color: #6a1b9a;
+  background-color: #17057c;
   color: white;
   padding: 12px;
   border: none;
@@ -20,13 +20,26 @@ body {
 }
 
 .botao-meu:hover {
+  background-color: #0f0594;
+}
+
+
+
+.botao-secundario {
+  background-color: #561b9a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  /*border: 1px solid rgb(21, 9, 138);*/
+  cursor: pointer;
+  text-decoration: none;
+}
+.botao-secundario:hover {
   background-color: #4a148c;
 }
 
-.botao-secundario {
-  background-color: lightgray;
-  color: black;
-  padding: 8px 16px;
-  border: 1px solid gray;
-  cursor: pointer;
+.input-longo {
+  width: 400px;
 }

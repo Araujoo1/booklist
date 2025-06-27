@@ -8,6 +8,23 @@
   <a href="{% url 'cadastrar_livro' %}" class="btn btn-outline-dark btn-lg me-2">Cadastrar novo livro</a>
   </div>
 
+   <!-- Filtro -->
+  <form method="get" class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex gap-3">
+      <input type="text" name="busca" class="form-control" placeholder="Buscar por título ou autor" style="width: 400px;">
+      <select name="status" class="form-select w-75">
+        <option value="">Todos</option>
+        <option value="lido">Lido</option>
+        <option value="nao_lido">Não Lido</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Filtrar</button>
+    </div>
+
+ 
+  </form>
+
+
+  <!-- Cards -->
   <div class="row">
     {% for livro in livros %}
       <div class="col-md-4 mb-4">

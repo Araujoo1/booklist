@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Livro
 from .forms import LivroForm
+from django.db.models import Q
+import unicodedata
 
 def home(request):
     return render(request, 'home.html')
@@ -17,7 +19,38 @@ def cadastrar_livro(request):
     
     return render(request, 'cadastrar_livro.html', {'form': form} )
 
+def remove_acentos(texto):
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', texto)
+        if unicodedata.category(c) != 'Mn'
+    )
+
 def livros(request): 
+    status = request.GET.get('status')
+    busca = request.GET.get('busca')
     livros = Livro.objects.all()
+
+    if status == 'lido':
+        livros = livros.filter(lido=True)
+    elif status == 'nao_lido':
+        livros = livros.filter(lido=False)
+
+    if busca:
+        busca_normalizada = remove_acentos(busca).lower()
+        livros = [
+            livro for livro in livros
+            if busca_normalizada in remove_acentos(livro.titulo).lower()
+            or busca_normalizada in remove_acentos(livro.autor).lower()
+        ]      
     return render(request, 'livros.html', {'livros': livros})
 
+def editar_livro(request):
+    livro = get_object_or_404(Livro, id=id)
+
+    if request.method == 'POST':
+        form = LivroForm(request.POST, instance=livro)
+        if form.is_valid():
+            form.save()
+            return redirect('livros')
+    else:
+        form=LivroForm(instance=livro)
