@@ -2,16 +2,18 @@
 
 {% block content %}
 <div class="container text-center mt-5">
-  <h1 class="titulo-custom mb-4">📘 Minha Booklist</h1>
+  <h2 class="mb-4"><i class="bi bi-book"></i> Minha Booklist</h2>
 
-  <div class="d-grid gap-4 col-6 mx-auto">
-    <a href="{% url 'livros' %}" class="botao-meu">Meus Livros</a>
-    <a href="{% url 'cadastrar_livro' %}" class="botao-meu">Cadastrar Livro</a>
+  <div class="mb-4">
+    <a href="{% url 'livros' %}" class="btn btn-outline-dark btn-lg w-50 mb-3">Meus Livros</a><br>
+    <a href="{% url 'cadastrar_livro' %}" class="btn btn-outline-dark btn-lg w-50">Cadastrar Livro</a>
   </div>
-    <footer class="text-center mt-5 mb-3 text-muted">
-     Desenvolvido por Guilherme Araujo — 
-     <a href="https://github.com/Araujoo1/booklist" class="text-decoration-none" target="_blank">
-    Ver no GitHub
-  </a>
-</footer>
+
+
+    <p class="mt-4 text-muted">
+      Desenvolvido por Guilherme Araujo —
+      <a href="https://github.com/Araujoo1/booklist" target="_blank">Ver no GitHub</a>
+    </p>
+</div>
+
 {% endblock %}

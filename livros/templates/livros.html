@@ -29,16 +29,33 @@
         <div class="card shadow-sm">
           <div class="card-body">
             <h5 class="card-title">{{ livro.titulo }}</h5>
-            <p class="card-text">
-              <strong>Autor:</strong> {{ livro.autor }}<br>
-              <strong>Preço:</strong> R$ {{ livro.preco }}<br>
-              <strong>Status:</strong>
-              {% if livro.lido %}
-                <span class="badge bg-success">Lido</span>
-              {% else %}
-                <span class="badge bg-secondary">Não Lido</span>
-              {% endif %}
-            </p>
+            <p class="mb-1">
+              <strong>Autor:</strong> {{ livro.autor }}
+              </p>
+              <p class="mb-1">
+                <strong>Preço:</strong> R$ {{ livro.preco }}
+              </p>
+              <div class="d-flex align-items-center mb-1">
+                <strong class="me-2">Status:</strong>
+
+                {% if livro.lido %}
+                  <span class="badge bg-success me-2">Lido</span>
+                {% else %}
+                  <span class="badge bg-secondary me-2">Não Lido</span>
+                {% endif %}
+
+                <form action="{% url 'alternar_lido' livro.id %}" method="post" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit"
+                          class="btn btn-sm py-0 px-1 {% if livro.lido %}btn-outline-danger{% else %}btn-outline-success{% endif %}">
+                    {% if livro.lido %}
+                      <i class="bi bi-x-lg"></i> <!-- ícone de X -->
+                    {% else %}
+                      <i class="bi bi-check-lg"></i> <!-- ícone de check -->
+                    {% endif %}
+                </form>
+              </div>
+            </p>           
             <div class="d-flex justify-content-between">
               <a href="{% url 'editar_livro' livro.id %}" class="btn btn-warning btn-sm">Editar</a>
               <button type="button"

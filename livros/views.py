@@ -62,5 +62,11 @@ def confirmar_exclusao(request, livro_id):
     if request.method == 'POST':
         livro.delete()
         return redirect('livros')
+    
+def alternar_lido(request, livro_id):
+    livro = get_object_or_404(Livro, id=livro_id)
+    livro.lido = not livro.lido  # Inverte o valor
+    livro.save()
+    return redirect('livros')  
 
     
