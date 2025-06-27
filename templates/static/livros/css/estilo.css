@@ -22,3 +22,11 @@ body {
 .botao-meu:hover {
   background-color: #4a148c;
 }
+
+.botao-secundario {
+  background-color: lightgray;
+  color: black;
+  padding: 8px 16px;
+  border: 1px solid gray;
+  cursor: pointer;
+}

@@ -1,11 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Livros</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">📚 Meus Livros</h2>
+  <div class = "text-center mb-4">
+  <a href="{% url 'home' %}" class="btn btn-outline-dark btn-lg me-2">Home</a>
+  <a href="{% url 'cadastrar_livro' %}" class="btn btn-outline-dark btn-lg me-2">Cadastrar novo livro</a>
+  </div>
+
+  <div class="row">
+    {% for livro in livros %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ livro.titulo }}</h5>
+            <p class="card-text">
+              <strong>Autor:</strong> {{ livro.autor }}<br>
+              <strong>Preço:</strong> R$ {{ livro.preco }}<br>
+              <strong>Status:</strong>
+              {% if livro.lido %}
+                <span class="badge bg-success">Lido</span>
+              {% else %}
+                <span class="badge bg-secondary">Não Lido</span>
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-center">Nenhum livro cadastrado ainda.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

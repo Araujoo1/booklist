@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Cadastrar</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 col-md-3">
+  <h2 class="text-center mb-4">Cadastrar Novo Livro</h2>
+  <div class = "text-center mb-4">
+  <a href="{% url 'home' %}" class="btn btn-outline-dark btn-lg me-2">Home</a>
+  <a href="{% url 'livros' %}" class="btn btn-outline-dark btn-lg me-2">Meus Livros</a>
+  </div>
+  <form method="post" class="p-4 shadow rounded bg-light">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-success">Salvar Livro</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
