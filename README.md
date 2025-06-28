@@ -5,14 +5,14 @@ Um projeto Django para organizar seus livros lidos e não lidos. Com interface r
 ## 🖼️ Screenshots
 
 ### 🏠 Página Inicial
-![Home](https://raw.githubusercontent.com/Araujoo1/booklist/refs/heads/main/home.PNG?token=GHSAT0AAAAAADGAI7P7X4QGVUVJO4V6ZYC42C7KENQ)
+![Home](https://raw.githubusercontent.com/Araujoo1/booklist/main/home.PNG)
 
 ### 📋 Meus Livros
-![Livros](https://raw.githubusercontent.com/Araujoo1/booklist/refs/heads/main/meuslivros.PNG?token=GHSAT0AAAAAADGAI7P7FKJGJWQEBVR2NXIO2C7KFAA)
+![Livros](https://raw.githubusercontent.com/Araujoo1/booklist/main/meuslivros.PNG)
 
 
 ### 📝 Cadastro de Livro
-![Cadastro](https://raw.githubusercontent.com/Araujoo1/booklist/refs/heads/main/cadastro.PNG?token=GHSAT0AAAAAADGAI7P7SCEEKYHJL44QDCE42C7KFKA)
+![Cadastro](https://raw.githubusercontent.com/Araujoo1/booklist/main/cadastro.PNG)
 
 
 ## 🔧 Tecnologias usadas
