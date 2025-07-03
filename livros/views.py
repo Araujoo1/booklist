@@ -29,6 +29,7 @@ def livros(request):
     status = request.GET.get('status')
     busca = request.GET.get('busca')
     livros = Livro.objects.all()
+    
 
     if status == 'lido':
         livros = livros.filter(lido=True)
@@ -42,7 +43,8 @@ def livros(request):
             if busca_normalizada in remove_acentos(livro.titulo).lower()
             or busca_normalizada in remove_acentos(livro.autor).lower()
         ]      
-    return render(request, 'livros.html', {'livros': livros})
+    total_livros = len(livros)
+    return render(request, 'livros.html', {'livros': livros, 'total_livros': total_livros})
 
 def editar_livro(request, id):
     livro = get_object_or_404(Livro, id=id)
